@@ -1,0 +1,12 @@
+{
+  "name": "rick-and-morty",
+  "displayName": "rick-and-morty",
+  "expo": {
+    "name": "rick-and-morty",
+    "slug": "rick-and-morty",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
