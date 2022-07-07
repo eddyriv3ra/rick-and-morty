@@ -4,7 +4,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getCharacters } from '../../api';
-import { ICharacter } from '../../interfaces/Character';
+import { ICharacter } from '../../interfaces/character';
 import CharacterList from '../../components/CharacterList';
 
 function Characters() {
@@ -27,7 +27,7 @@ function Characters() {
         keyExtractor={(item: ICharacter) => `${item.id}`}
         columnWrapperStyle={styles.columnWrapperStyle}
         showsVerticalScrollIndicator={false}
-        renderItem={CharacterList}
+        renderItem={({ item }) => <CharacterList item={item} />}
       />
     </SafeAreaView>
   );

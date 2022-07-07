@@ -1,13 +1,20 @@
+import React from 'react';
 import {
   StyleSheet, Text, View, TouchableOpacity, Image,
 } from 'react-native';
-import React from 'react';
-import { ICharacter } from '../../interfaces/Character';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { ICharacter } from '../../interfaces/character';
+import { AppStackParamList } from '../../interfaces/navigation';
+
+type ProfileScreenNavigationProp =
+NativeStackNavigationProp<AppStackParamList>
 
 function CharacterList({ item }: { item: ICharacter }) {
+  const navigation = useNavigation<ProfileScreenNavigationProp>();
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('SingleCharacter')}>
         <View style={styles.wrapper}>
           <Image
             style={styles.image}

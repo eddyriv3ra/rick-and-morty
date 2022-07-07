@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-navigation/core": "^6.2.2",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
     "expo": "~41.0.1",
@@ -27,7 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@types/react": "~16.9.35",
+    "@types/react": "^18.0.15",
     "@types/react-native": "~0.63.2",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
