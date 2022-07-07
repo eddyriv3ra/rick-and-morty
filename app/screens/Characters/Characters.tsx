@@ -1,11 +1,14 @@
 import {
-  StyleSheet, Image, View, Text, FlatList,
+  StyleSheet, FlatList,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { getCharacters } from '../../api';
+import { ICharacter } from '../../interfaces/Character';
+import CharacterList from '../../components/CharacterList';
 
 function Characters() {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<ICharacter[]>([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -14,54 +17,30 @@ function Characters() {
     };
     getData();
   }, []);
-  console.log(characters);
 
   return (
-    <FlatList
-      data={characters}
-      numColumns={2}
-      style={{ width: '100%' }}
-      keyExtractor={(item) => item.id}
-      columnWrapperStyle={{
-        marginBottom: 20, justifyContent: 'space-between', height: 250,
-      }}
-      showsVerticalScrollIndicator={false}
-      renderItem={({ item }) => (
-        <View style={{
-          width: '48%', borderRadius: 20, borderWidth: 1,
-        }}
-        >
-          <Image
-            style={styles.tinyLogo}
-            source={{
-              uri: item?.image,
-            }}
-          />
-          <View style={{ justifyContent: 'space-around', flex: 1, marginLeft: 5 }}>
-            <Text style={{ fontWeight: '600' }}>{item?.name}</Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={{ marginRight: 2 }}>Species: </Text>
-              <Text>{item?.species}</Text>
-            </View>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={{ marginRight: 2 }}>Status: </Text>
-              <Text>{item.status}</Text>
-            </View>
-          </View>
-        </View>
-      )}
-    />
+    <SafeAreaView edges={['bottom', 'top']}>
+      <FlatList
+        data={characters}
+        numColumns={2}
+        style={styles.flatList}
+        keyExtractor={(item: ICharacter) => `${item.id}`}
+        columnWrapperStyle={styles.columnWrapperStyle}
+        showsVerticalScrollIndicator={false}
+        renderItem={CharacterList}
+      />
+    </SafeAreaView>
   );
 }
 
 export default Characters;
 
 const styles = StyleSheet.create({
-  tinyLogo: {
-    width: '100%',
-    height: 150,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    resizeMode: 'cover',
+  columnWrapperStyle: {
+    marginBottom: 20,
+    justifyContent: 'space-between',
+  },
+  flatList: {
+    paddingHorizontal: 10,
   },
 });
