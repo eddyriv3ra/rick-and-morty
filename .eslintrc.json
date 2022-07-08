@@ -22,7 +22,8 @@
         "react",
         "@typescript-eslint",
         "react-native",
-        "jest"
+        "jest",
+        "prettier"
     ],
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
@@ -30,7 +31,8 @@
         "import/extensions": "off",
         "import/no-named-as-default": 0,
         "arrow-body-style": ["error", "as-needed"],
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "consistent-return": ["error", { "treatUndefinedAsUnspecified": false }]
     },
     "settings": {
         "import/core-modules": [

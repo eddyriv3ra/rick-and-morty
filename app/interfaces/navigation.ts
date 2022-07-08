@@ -1,6 +1,6 @@
 export type AppStackParamList = {
-    Characters: undefined;
-    SingleCharacter: {
-      id: number;
-    };
+  Characters: undefined;
+  SingleCharacter: {
+    id: number;
   };
+};

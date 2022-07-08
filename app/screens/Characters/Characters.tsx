@@ -1,6 +1,4 @@
-import {
-  StyleSheet, FlatList,
-} from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getCharacters } from '../../api';
@@ -38,9 +36,9 @@ export default Characters;
 const styles = StyleSheet.create({
   columnWrapperStyle: {
     marginBottom: 20,
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   flatList: {
-    paddingHorizontal: 10,
-  },
+    paddingHorizontal: 10
+  }
 });
