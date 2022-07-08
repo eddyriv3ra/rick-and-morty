@@ -1,4 +1,4 @@
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, View, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getCharacters } from '../../api';
@@ -15,6 +15,15 @@ function Characters() {
     };
     getData();
   }, []);
+
+  if (
+    !characters.length
+  )
+    return (
+      <View style={styles.activityIndicatorContainer}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
 
   return (
     <SafeAreaView edges={['bottom']}>
@@ -40,5 +49,9 @@ const styles = StyleSheet.create({
   },
   flatList: {
     paddingHorizontal: 10
+  },
+  activityIndicatorContainer: {
+    flex: 1,
+    justifyContent: 'center'
   }
 });

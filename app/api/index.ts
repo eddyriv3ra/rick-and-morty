@@ -16,7 +16,7 @@ export const getCharacters = async () => {
     const parseData = await req.json();
     return parseData.results;
   } catch (error) {
-    return false;
+    return undefined;
   }
 };
 
@@ -38,7 +38,7 @@ const getLocationData = async (urlLocation: string) => {
     const req = await (await fetch(urlLocation)).json();
     return req;
   } catch (error) {
-    return false;
+    return undefined;
   }
 };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image, Text, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { EvilIcons } from '@expo/vector-icons';
@@ -26,6 +26,17 @@ function SingleCharacter({ route }: SingleCharacterProps) {
 
   const { singleCharacterReq, locationReq, episodeReq } =
     singleCharacterInfo || {};
+
+  if (
+    singleCharacterReq === undefined ||
+    locationReq === undefined ||
+    episodeReq === undefined
+  )
+    return (
+      <View style={styles.activityIndicatorContainer}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['bottom']}>
@@ -89,5 +100,9 @@ const styles = StyleSheet.create({
   profileLocation: {
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  activityIndicatorContainer: {
+    flex: 1,
+    justifyContent: 'center'
   }
 });
