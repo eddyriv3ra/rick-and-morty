@@ -9,12 +9,12 @@ export interface ILocation {
 }
 
 export interface ICharacter {
-    id?: number;
-    type?: string;
-    name?: string;
-    image?: string;
-    species?: string;
-    status?: number;
+    id: number;
+    type: string;
+    name: string;
+    image: string;
+    species: string;
+    status: number;
     gender: 'Male' | 'Female';
     url: string;
     origin: IOrigin;

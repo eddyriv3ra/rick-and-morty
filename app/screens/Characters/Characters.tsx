@@ -19,7 +19,7 @@ function Characters() {
   }, []);
 
   return (
-    <SafeAreaView edges={['bottom', 'top']}>
+    <SafeAreaView edges={['bottom']}>
       <FlatList
         data={characters}
         numColumns={2}

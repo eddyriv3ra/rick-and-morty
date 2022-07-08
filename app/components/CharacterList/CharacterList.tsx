@@ -7,14 +7,17 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { ICharacter } from '../../interfaces/character';
 import { AppStackParamList } from '../../interfaces/navigation';
 
-type ProfileScreenNavigationProp =
+type CharacterListScreenNavigationProp =
 NativeStackNavigationProp<AppStackParamList>
 
 function CharacterList({ item }: { item: ICharacter }) {
-  const navigation = useNavigation<ProfileScreenNavigationProp>();
+  const navigation = useNavigation<CharacterListScreenNavigationProp>();
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('SingleCharacter')}>
+      <TouchableOpacity onPress={() => navigation.navigate('SingleCharacter', {
+        id: item.id,
+      })}
+      >
         <View style={styles.wrapper}>
           <Image
             style={styles.image}

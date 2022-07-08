@@ -9,11 +9,10 @@ const Stack = createNativeStackNavigator<AppStackParamList>();
 function AppNavigator() {
   return (
     <Stack.Navigator
-      screenOptions={{ headerShown: false }}
       initialRouteName="Characters"
     >
       <Stack.Screen name="Characters" component={Characters} />
-      <Stack.Screen name="SingleCharacter" component={SingleCharacter} />
+      <Stack.Screen options={{ title: '' }} name="SingleCharacter" component={SingleCharacter} />
     </Stack.Navigator>
   );
 }
