@@ -4,6 +4,7 @@
   "expo": {
     "name": "rick-and-morty",
     "slug": "rick-and-morty",
+    "orientation" : "portrait",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

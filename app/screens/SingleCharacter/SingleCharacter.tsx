@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Image, Text, ActivityIndicator } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  ActivityIndicator,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { EvilIcons } from '@expo/vector-icons';
@@ -34,7 +40,7 @@ function SingleCharacter({ route }: SingleCharacterProps) {
   )
     return (
       <View style={styles.activityIndicatorContainer}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
 
@@ -73,7 +79,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   topContainer: {
-    height: '40%'
+    height: '40%',
+    marginTop: 20
   },
   topProfileContainer: {
     height: 200,
