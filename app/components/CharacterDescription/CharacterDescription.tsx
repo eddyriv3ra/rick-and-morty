@@ -1,19 +1,21 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  ScrollView, StyleSheet, Text, View,
+} from 'react-native';
 import { ICharacter } from '../../interfaces/character';
 import { IEpisode } from '../../interfaces/episode';
 import { ILocation } from '../../interfaces/location';
 
 interface CharacterDescriptionType {
   singleCharacter: ICharacter;
-  singleCharacterLocation: ILocation;
+  singleCharacterLocation: ILocation | undefined;
   episodes: IEpisode[];
 }
 
 function CharacterDescription({
   singleCharacter,
   singleCharacterLocation,
-  episodes
+  episodes,
 }: CharacterDescriptionType) {
   return (
     <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -79,36 +81,36 @@ const styles = StyleSheet.create({
   scrollView: {
     paddingTop: 30,
     marginHorizontal: 20,
-    paddingBottom: 40
+    paddingBottom: 40,
   },
   textContainer: {
     flexDirection: 'row',
     marginBottom: 30,
-    alignItems: "center"
+    alignItems: 'center',
   },
   title: {
     fontWeight: '500',
     fontSize: 17,
-    fontStyle: 'italic'
+    fontStyle: 'italic',
   },
   separator: {
     borderBottomColor: 'black',
-    borderBottomWidth: StyleSheet.hairlineWidth
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   subTitle: {
     fontWeight: '500',
     fontSize: 20,
-    fontStyle: 'italic'
+    fontStyle: 'italic',
   },
   spacer: {
     marginTop: 30,
-    marginBottom: 30
+    marginBottom: 30,
   },
   chapters: {
     marginBottom: 10,
-    fontSize: 15
+    fontSize: 15,
   },
   extraMarginBottom: {
-    marginBottom: 30
-  }
+    marginBottom: 30,
+  },
 });

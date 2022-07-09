@@ -21,7 +21,7 @@ export const getCharacters = async () => {
 };
 
 export const getSingleCharacter = async (
-  id: number
+  id: number,
 ): Promise<ResultType | undefined> => {
   try {
     const singleCharacterReq = await (await fetch(`${url}/${id}`)).json();
@@ -47,7 +47,7 @@ const getEpisodeData = async (episodes: IEpisode[]) => {
     episodes.map(async (episodeUrl: any) => {
       const response = await (await fetch(episodeUrl)).json();
       return response;
-    })
+    }),
   );
   return episodesData;
 };

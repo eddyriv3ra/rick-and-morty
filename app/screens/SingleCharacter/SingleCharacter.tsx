@@ -30,19 +30,18 @@ function SingleCharacter({ route }: SingleCharacterProps) {
     getData();
   }, []);
 
-  const { singleCharacterReq, locationReq, episodeReq } =
-    singleCharacterInfo || {};
+  const { singleCharacterReq, locationReq, episodeReq } = singleCharacterInfo || {};
 
   if (
-    singleCharacterReq === undefined ||
-    locationReq === undefined ||
-    episodeReq === undefined
-  )
+    singleCharacterReq === undefined
+    || episodeReq === undefined
+  ) {
     return (
       <View style={styles.activityIndicatorContainer}>
         <ActivityIndicator size="large" color="#0000ff" />
       </View>
     );
+  }
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['bottom']}>
@@ -51,7 +50,7 @@ function SingleCharacter({ route }: SingleCharacterProps) {
           <Image
             style={styles.image}
             source={{
-              uri: singleCharacterReq?.image
+              uri: singleCharacterReq?.image,
             }}
           />
           <View style={styles.topProfileInfo}>
@@ -76,40 +75,40 @@ export default SingleCharacter;
 
 const styles = StyleSheet.create({
   safeArea: {
-    flex: 1
+    flex: 1,
   },
   topContainer: {
     height: '40%',
-    marginTop: 20
+    marginTop: 20,
   },
   topProfileContainer: {
     height: 200,
     borderRadius: 100,
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   image: {
     borderWidth: 2,
     borderColor: 'black',
     height: 200,
     width: 200,
-    borderRadius: 100
+    borderRadius: 100,
   },
   topProfileInfo: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   characterName: {
     fontWeight: '700',
-    fontSize: 20
+    fontSize: 20,
   },
   profileLocation: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   activityIndicatorContainer: {
     flex: 1,
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 });

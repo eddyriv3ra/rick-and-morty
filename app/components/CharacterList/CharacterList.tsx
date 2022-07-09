@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import {
+  StyleSheet, Text, View, TouchableOpacity, Image,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { ICharacter } from '../../interfaces/character';
@@ -13,17 +15,15 @@ function CharacterList({ item }: { item: ICharacter }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('SingleCharacter', {
-            id: item.id
-          })
-        }
+        onPress={() => navigation.navigate('SingleCharacter', {
+          id: item.id,
+        })}
       >
         <View style={styles.wrapper}>
           <Image
             style={styles.image}
             source={{
-              uri: item?.image
+              uri: item?.image,
             }}
           />
           <View style={styles.textContainer}>
@@ -50,30 +50,30 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 1,
     width: '48%',
-    height: 250
+    height: 250,
   },
   image: {
     width: '100%',
     height: 150,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
   },
   wrapper: {
-    height: '100%'
+    height: '100%',
   },
   textContainer: {
     paddingLeft: 5,
     flex: 1,
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
   },
   name: {
-    fontWeight: '600'
+    fontWeight: '600',
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   extraMargin: {
-    marginRight: 2
-  }
+    marginRight: 2,
+  },
 });
