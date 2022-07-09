@@ -15,6 +15,7 @@ function CharacterList({ item }: { item: ICharacter }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        testID="button"
         onPress={() => navigation.navigate('SingleCharacter', {
           id: item.id,
         })}
@@ -30,11 +31,11 @@ function CharacterList({ item }: { item: ICharacter }) {
             <Text style={styles.name}>{item?.name}</Text>
             <View style={styles.row}>
               <Text style={styles.extraMargin}>Species: </Text>
-              <Text>{item?.species}</Text>
+              <Text testID="desc">{item?.species}</Text>
             </View>
             <View style={styles.row}>
               <Text style={styles.extraMargin}>Status: </Text>
-              <Text>{item.status}</Text>
+              <Text testID="desc">{item.status}</Text>
             </View>
           </View>
         </View>

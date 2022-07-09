@@ -21,7 +21,7 @@ function Characters() {
   if (!characters.length) {
     return (
       <View style={styles.activityIndicatorContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator testID="spinner" size="large" color="#0000ff" />
       </View>
     );
   }
@@ -29,6 +29,7 @@ function Characters() {
   return (
     <SafeAreaView edges={['bottom']}>
       <FlatList
+        testID="characters"
         data={characters}
         numColumns={2}
         style={styles.flatList}

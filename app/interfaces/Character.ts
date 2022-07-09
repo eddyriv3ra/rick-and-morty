@@ -14,7 +14,7 @@ export interface ICharacter {
   name: string;
   image: string;
   species: string;
-  status: number;
+  status: string;
   gender: 'Male' | 'Female';
   url: string;
   origin: IOrigin;
